@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Customer_cus extends Model
 {
     // Add the table name.
-    protected $table = '"CUSTOMER_CUS"'; 
+    protected $table = 'CUSTOMER_CUS'; 
 
     protected $primaryKey = 'cus_id';
     protected $keyType = 'int';
