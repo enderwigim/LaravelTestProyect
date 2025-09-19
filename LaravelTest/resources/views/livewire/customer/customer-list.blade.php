@@ -9,14 +9,21 @@
                 wire:model.live="perPage"
                 class="rounded-md border-gray-300 text-sm shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
             >
-                <option value="10">10</option>
-                <option value="25">25</option>
-                <option value="50">50</option>
-                <option value="100">100</option>
-            </select>
-        </div>
-    </div>
+                 @php $i = 10; @endphp
 
+                @for (; $i <= $customers->total(); $i *= 2)
+                    <option value="{{ $i }}">{{ $i }}</option>
+                @endfor
+
+                {{-- Si el último valor mostrado no fue exactamente el máximo, lo agregamos --}}
+                @if (($i / 2) !== $customers->total())
+                    <option value="{{ $customers->total() }}">{{ $customers->total() }}</option>
+                @endif
+            </select>
+
+        </div>
+
+    </div>
     <!-- Tabla -->
     <div class="overflow-x-auto rounded-lg border border-gray-200 bg-white shadow-sm">
         <table class="min-w-full divide-y divide-gray-200">
@@ -35,6 +42,13 @@
                         <td class="px-4 py-3 text-gray-800">{{ $c->cus_corporatename ?: '—' }}</td>
                         <td class="px-4 py-3 text-gray-800">{{ $c->cus_commercialname ?: '—' }}</td>
                         <td class="px-4 py-3 text-gray-800">{{ $c->cus_taxid ?: '—' }}</td>
+                        <td class="px-4 py-3 text-right whitespace-nowrap">
+                            <button
+                                wire:click="$dispatch('customer-edit', { customer: {{ $c->cus_id }} })"
+                                class="inline-flex items-center gap-1 rounded-md border border-gray-200 px-3 py-1.5 text-sm text-gray-700 transition hover:border-indigo-300 hover:bg-indigo-50 hover:text-indigo-700">
+                                Editar
+                            </button>
+                    </td>
                     </tr>
                 @empty
                     <tr>

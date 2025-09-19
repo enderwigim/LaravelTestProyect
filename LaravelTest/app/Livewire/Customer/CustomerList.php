@@ -25,8 +25,7 @@ class CustomerList extends Component
             ->orderBy('cus_id', 'desc')
             ->paginate($this->perPage);
 
-        $maxPerPage = $customers.count()
-        // Pasa $customers a la vista (NO lo guardes en propiedad pública)
-        return view('livewire.customer.customer-list', compact('customers'));
+        $maxPerPage = count($customers);
+        return view('livewire.customer.customer-list', compact('customers', 'maxPerPage'));
     }
 }
