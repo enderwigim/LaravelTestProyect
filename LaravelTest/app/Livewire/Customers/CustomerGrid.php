@@ -7,13 +7,14 @@ use App\Livewire\Customers\Detail;
 
 class CustomerGrid extends Component
 {
-    /** @var array<int, array<string,string>> */
-    public array $clientes = [];
+    public array $customers = [];
+    public array $originalCustomers = [];
+    public string $searchText = '';
 
     public function mount(): void
     {
         // Datos de ejemplo (estáticos)
-        $this->clientes = [
+        $this->customers = [
             [
                 'id' => 1,
                 'codigo' => 'CLI-0001',
@@ -43,6 +44,8 @@ class CustomerGrid extends Component
                 'cif' => 'B55443322',
             ],
         ];
+
+        $this->originalCustomers = $this->customers;
     }
 
     // Stubs para enganchar modales cuando los tengas listos
@@ -55,7 +58,7 @@ class CustomerGrid extends Component
     // public function editar(int $id): void
     // {
     //     // Abre modal de edición (lo conectarás después)
-    //     $this->dispatch('clientes-editar:abrir', id: $id);
+    //     $this->dispatch('customers-editar:abrir', id: $id);
     // }
 
     public function render()

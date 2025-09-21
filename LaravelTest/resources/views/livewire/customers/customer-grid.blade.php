@@ -1,7 +1,7 @@
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
   <!-- Header / barra de acciones -->
   <div class="mb-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-    <h1 class="text-xl sm:text-2xl font-semibold text-[#003f66]">Clientes</h1>
+    <h1 class="text-xl sm:text-2xl font-semibold text-[#003f66]">customers</h1>
 
     <div class="flex items-center gap-2">
       <div class="relative">
@@ -10,9 +10,7 @@
           placeholder="Buscar (Código, Nombre, CIF)…"
           class="w-64 max-w-full rounded-md border border-gray-200 bg-white/90 px-3 py-2 text-sm
                  placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#0077c8]/40"
-          disabled
         />
-        <span class="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 text-xs">WIP</span>
       </div>
 
       <button type="button"
@@ -36,7 +34,7 @@
         </tr>
       </thead>
       <tbody class="divide-y divide-gray-100">
-        @foreach ($clientes as $c)
+        @foreach ($customers as $c)
           <tr
             class="hover:bg-[#0077c8]/5 transition"
           >
