@@ -69,7 +69,7 @@
                   class="px-3 py-1.5 rounded-md bg-[#f36f21] text-white
                          hover:bg-[#e65f12] transition
                          focus:outline-none focus:ring-2 focus:ring-[#f36f21]/50"
-                  {{-- wire:click="editar({{ $c['id'] }})"> --}}
+                  wire:click="editCustomer({{ $c['cus_id'] }})"
                 >
                 Editar
                 </button>

@@ -28,8 +28,6 @@
             <livewire:customer.customer-list />
         </main>
     </div>
-    <!-- 👇 Modal en raíz del body -->
-    <livewire:customer.customer-form />
     @livewireScripts
 </body>
 </html>

@@ -4,14 +4,18 @@ namespace App\Livewire\Customers;
 
 use Livewire\Component;
 use App\Livewire\Customers\Detail;
+use App\Livewire\Customers\CustomerEdit;
 use App\Models\Customer_cus;
 use Livewire\WithPagination;
 
 class CustomerGrid extends Component
 {
-    //public array $customers = [];
-    
+
     public string $searchText = '';
+
+    protected $listeners = [
+        'customers.updated' => '$refresh',
+    ];
 
     public function updatingSearchText(): void
     {
@@ -25,11 +29,10 @@ class CustomerGrid extends Component
         $this->dispatch('customers.detail:open', id: $id)->to(Detail::class);
     }
 
-    // public function editar(int $id): void
-    // {
-    //     // Abre modal de edición (lo conectarás después)
-    //     $this->dispatch('customers-editar:abrir', id: $id);
-    // }
+    public function editCustomer(int $id): void
+    {
+        $this->dispatch('customers.edit:open', id: $id)->to(CustomerEdit::class);
+    }
 
     public function render()
     {
