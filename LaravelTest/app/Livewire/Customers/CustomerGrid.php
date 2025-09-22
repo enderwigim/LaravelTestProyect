@@ -4,6 +4,7 @@ namespace App\Livewire\Customers;
 
 use Livewire\Component;
 use App\Livewire\Customers\Detail;
+use App\Models\Customer_cus;
 
 class CustomerGrid extends Component
 {
@@ -13,39 +14,39 @@ class CustomerGrid extends Component
 
     public function mount(): void
     {
-        // Datos de ejemplo (estáticos)
-        $this->customers = [
-            [
-                'id' => 1,
-                'codigo' => 'CLI-0001',
-                'nombre_comercial' => 'Comercial Norte',
-                'empresa' => 'Integra QS S.A.',
-                'cif' => 'A12345678',
-            ],
-            [
-                'id' => 2,
-                'codigo' => 'CLI-0002',
-                'nombre_comercial' => 'Distribuciones Sur',
-                'empresa' => 'LogiWare SL',
-                'cif' => 'B87654321',
-            ],
-            [
-                'id' => 3,
-                'codigo' => 'CLI-0003',
-                'nombre_comercial' => 'Retail Centro',
-                'empresa' => 'Retailing group LTD',
-                'cif' => 'C11223344',
-            ],
-            [
-                'id' => 4,
-                'codigo' => 'CLI-0004',
-                'nombre_comercial' => 'Mayorista Este',
-                'empresa' => 'Comex Iberia',
-                'cif' => 'B55443322',
-            ],
-        ];
+        // // Datos de ejemplo (estáticos)
+        // $this->customers = [
+        //     [
+        //         'id' => 1,
+        //         'codigo' => 'CLI-0001',
+        //         'nombre_comercial' => 'Comercial Norte',
+        //         'empresa' => 'Integra QS S.A.',
+        //         'cif' => 'A12345678',
+        //     ],
+        //     [
+        //         'id' => 2,
+        //         'codigo' => 'CLI-0002',
+        //         'nombre_comercial' => 'Distribuciones Sur',
+        //         'empresa' => 'LogiWare SL',
+        //         'cif' => 'B87654321',
+        //     ],
+        //     [
+        //         'id' => 3,
+        //         'codigo' => 'CLI-0003',
+        //         'nombre_comercial' => 'Retail Centro',
+        //         'empresa' => 'Retailing group LTD',
+        //         'cif' => 'C11223344',
+        //     ],
+        //     [
+        //         'id' => 4,
+        //         'codigo' => 'CLI-0004',
+        //         'nombre_comercial' => 'Mayorista Este',
+        //         'empresa' => 'Comex Iberia',
+        //         'cif' => 'B55443322',
+        //     ],
+        // ];
+        $this->customers = Customer_cus::all()->toArray();
 
-        $this->originalCustomers = $this->customers;
     }
 
     // Stubs para enganchar modales cuando los tengas listos

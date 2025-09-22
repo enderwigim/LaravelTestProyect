@@ -22,19 +22,19 @@
         @if ($customer)
           <div>
             <p class="text-sm font-semibold text-gray-600">Código</p>
-            <p class="text-gray-900">{{ $customer['code'] }}</p>
+            <p class="text-gray-900">{{ $customer['cus_id'] }}</p>
           </div>
           <div>
             <p class="text-sm font-semibold text-gray-600">Nombre Comercial</p>
-            <p class="text-gray-900">{{ $customer['trade_name'] }}</p>
+            <p class="text-gray-900">{{ $customer['cus_commercialname'] }}</p>
           </div>
           <div>
-            <p class="text-sm font-semibold text-gray-600">Empresa</p>
-            <p class="text-gray-900">{{ $customer['company'] }}</p>
+            <p class="text-sm font-semibold text-gray-600">Nombre Empresa</p>
+            <p class="text-gray-900">{{ $customer['cus_corporatename'] }}</p>
           </div>
           <div>
             <p class="text-sm font-semibold text-gray-600">CIF</p>
-            <p class="text-gray-900">{{ $customer['cif'] }}</p>
+            <p class="text-gray-900">{{ $customer['cus_taxid'] }}</p>
           </div>
         @else
           <p class="text-gray-500 text-sm">No se encontraron datos para este cliente.</p>

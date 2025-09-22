@@ -27,8 +27,8 @@
       <thead>
         <tr class="bg-[#0077c8]/10 text-[#003f66]">
           <th class="px-4 py-3 text-left font-semibold">Código</th>
-          <th class="px-4 py-3 text-left font-semibold">Nombre comercial</th>
-          <th class="px-4 py-3 text-left font-semibold">Empresa</th>
+          <th class="px-4 py-3 text-left font-semibold">Nombre de Empresa</th>
+          <th class="px-4 py-3 text-left font-semibold">Nombre Comercial</th>
           <th class="px-4 py-3 text-left font-semibold">CIF</th>
           <th class="px-4 py-3 text-right font-semibold">Acciones</th>
         </tr>
@@ -39,19 +39,19 @@
             class="hover:bg-[#0077c8]/5 transition"
           >
             <!-- Click en celdas abre detalle -->
-            <td class="px-4 py-3 cursor-pointer" wire:click="seeDetail({{ $c['id'] }})">
+            <td class="px-4 py-3 cursor-pointer" wire:click="seeDetail({{ $c['cus_id'] }})">
               <span class="inline-flex items-center rounded-md bg-[#0077c8]/10 px-2 py-1 font-medium text-[#003f66]">
-                {{ $c['codigo'] }}
+                {{ $c['cus_id'] }}
               </span>
             </td>
-            <td class="px-4 py-3 cursor-pointer" wire:click="seeDetail({{ $c['id'] }})">
-              {{ $c['nombre_comercial'] }}
+            <td class="px-4 py-3 cursor-pointer" wire:click="seeDetail({{ $c['cus_id'] }})">
+              {{ $c['cus_corporatename'] }}
             </td>
-            <td class="px-4 py-3 cursor-pointer" wire:click="seeDetail({{ $c['id'] }})">
-              {{ $c['empresa'] }}
+            <td class="px-4 py-3 cursor-pointer" wire:click="seeDetail({{ $c['cus_id'] }})">
+              {{ $c['cus_commercialname'] }}
             </td>
-            <td class="px-4 py-3 cursor-pointer" wire:click="seeDetail({{ $c['id'] }})">
-              {{ $c['cif'] }}
+            <td class="px-4 py-3 cursor-pointer" wire:click="seeDetail({{ $c['cus_id'] }})">
+              {{ $c['cus_taxid'] }}
             </td>
 
             <td class="px-4 py-3">
@@ -60,7 +60,7 @@
                   class="px-3 py-1.5 rounded-md bg-white/10 text-[#003f66] border border-[#0077c8]/30
                          hover:bg-[#0077c8] hover:text-white transition
                          focus:outline-none focus:ring-2 focus:ring-[#0077c8]/40"
-                  wire:click="seeDetail({{ $c['id'] }})">
+                  wire:click="seeDetail({{ $c['cus_id'] }})">
                   Detalle
                 </button>
 
@@ -69,7 +69,8 @@
                          hover:bg-[#e65f12] transition
                          focus:outline-none focus:ring-2 focus:ring-[#f36f21]/50"
                   {{-- wire:click="editar({{ $c['id'] }})"> --}}
-                  Editar
+                >
+                Editar
                 </button>
               </div>
             </td>
@@ -79,8 +80,5 @@
     </table>
   </div>
 
-  <!-- Pie con info -->
-  <div class="mt-3 text-xs text-gray-500">
-    * Datos de ejemplo (estáticos). Conectarás Eloquent / paginación después.
-  </div>
+
 </div>
