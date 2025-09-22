@@ -5,48 +5,17 @@ namespace App\Livewire\Customers;
 use Livewire\Component;
 use App\Livewire\Customers\Detail;
 use App\Models\Customer_cus;
+use Livewire\WithPagination;
 
 class CustomerGrid extends Component
 {
-    public array $customers = [];
-    public array $originalCustomers = [];
+    //public array $customers = [];
+    
     public string $searchText = '';
 
-    public function mount(): void
+    public function updatingSearchText(): void
     {
-        // // Datos de ejemplo (estáticos)
-        // $this->customers = [
-        //     [
-        //         'id' => 1,
-        //         'codigo' => 'CLI-0001',
-        //         'nombre_comercial' => 'Comercial Norte',
-        //         'empresa' => 'Integra QS S.A.',
-        //         'cif' => 'A12345678',
-        //     ],
-        //     [
-        //         'id' => 2,
-        //         'codigo' => 'CLI-0002',
-        //         'nombre_comercial' => 'Distribuciones Sur',
-        //         'empresa' => 'LogiWare SL',
-        //         'cif' => 'B87654321',
-        //     ],
-        //     [
-        //         'id' => 3,
-        //         'codigo' => 'CLI-0003',
-        //         'nombre_comercial' => 'Retail Centro',
-        //         'empresa' => 'Retailing group LTD',
-        //         'cif' => 'C11223344',
-        //     ],
-        //     [
-        //         'id' => 4,
-        //         'codigo' => 'CLI-0004',
-        //         'nombre_comercial' => 'Mayorista Este',
-        //         'empresa' => 'Comex Iberia',
-        //         'cif' => 'B55443322',
-        //     ],
-        // ];
-        $this->customers = Customer_cus::all()->toArray();
-
+        $this->reset(); 
     }
 
     // Stubs para enganchar modales cuando los tengas listos
@@ -64,6 +33,21 @@ class CustomerGrid extends Component
 
     public function render()
     {
-        return view('livewire.customers.customer-grid');
+        $customers = Customer_cus::query()
+            ->when($this->searchText, function ($query) {
+                $query->where(function ($q) {
+                    $q->where('cus_id', 'like', '%' . $this->searchText . '%')
+                      ->orWhere('cus_corporatename', 'ilike', '%' . $this->searchText . '%')
+                      ->orWhere('cus_commercialname', 'like', '%' . $this->searchText . '%')
+                      ->orWhere('cus_taxid', 'ilike', '%' . $this->searchText . '%');
+                });
+            })
+            ->orderBy('cus_id')
+            ->paginate(10);
+
+
+        return view('livewire.customers.customer-grid', [
+            'customers' => $customers,
+        ]);
     }
 }
