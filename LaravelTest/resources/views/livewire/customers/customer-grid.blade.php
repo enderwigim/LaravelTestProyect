@@ -1,7 +1,7 @@
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
   <!-- Header / barra de acciones -->
   <div class="mb-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-    <h1 class="text-xl sm:text-2xl font-semibold text-[#003f66]">customers</h1>
+    <h1 class="text-xl sm:text-2xl font-semibold text-[#003f66]">Clientes</h1>
 
     <div class="flex items-center gap-2">
       <div class="relative">

@@ -52,6 +52,7 @@ class CustomerEdit extends Component
     public function closeModal(): void
     {
         $this->reset(['open', 'customer']);
+        
     }
 
 

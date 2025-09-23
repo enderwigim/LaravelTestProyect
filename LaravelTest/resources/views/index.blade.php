@@ -14,6 +14,8 @@
     <livewire:customers.detail />
     <livewire:customers.customer-edit />
     @livewireScripts
+
+
     @stack('modals')
 </body>
 </html>

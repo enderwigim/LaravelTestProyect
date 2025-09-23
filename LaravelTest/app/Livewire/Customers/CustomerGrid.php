@@ -7,10 +7,11 @@ use App\Livewire\Customers\Detail;
 use App\Livewire\Customers\CustomerEdit;
 use App\Models\Customer_cus;
 use Livewire\WithPagination;
+use Illuminate\Support\Facades\URL;
 
 class CustomerGrid extends Component
 {
-
+    use WithPagination; 
     public string $searchText = '';
 
     protected $listeners = [
@@ -32,6 +33,11 @@ class CustomerGrid extends Component
     public function editCustomer(int $id): void
     {
         $this->dispatch('customers.edit:open', id: $id)->to(CustomerEdit::class);
+    }
+
+    public function getPageUrl($pageName, $page)
+    {
+        return URL::current() . "?{$pageName}={$page}";
     }
 
     public function render()

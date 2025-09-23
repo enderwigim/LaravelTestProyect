@@ -1,3 +1,4 @@
+
 <div>
   <div
     x-data
@@ -26,21 +27,21 @@
             <label class="text-sm font-semibold text-gray-600">Nombre Comercial</label>
             <input type="text" wire:model="cus_commercialname"
               class="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:ring-[#0077c8]/40 focus:outline-none" />
-            @error('customer.cus_commercialname') <p class="text-red-500 text-sm">{{ $message }}</p> @enderror
+            @error('cus_commercialname') <p class="text-red-500 text-sm">{{ $message }}</p> @enderror
           </div>
 
           <div>
             <label class="text-sm font-semibold text-gray-600">Nombre Empresa</label>
             <input type="text" wire:model="cus_corporatename"
               class="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:ring-[#0077c8]/40 focus:outline-none" />
-            @error('customer.cus_corporatename') <p class="text-red-500 text-sm">{{ $message }}</p> @enderror
+            @error('cus_corporatename') <p class="text-red-500 text-sm">{{ $message }}</p> @enderror
           </div>
 
           <div>
             <label class="text-sm font-semibold text-gray-600">CIF</label>
             <input type="text" wire:model="cus_taxid"
               class="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:ring-[#0077c8]/40 focus:outline-none" />
-            @error('customer.cus_taxid') <p class="text-red-500 text-sm">{{ $message }}</p> @enderror
+            @error('cus_taxid') <p class="text-red-500 text-sm">{{ $message }}</p> @enderror
           </div>
         @else
           <p class="text-gray-500 text-sm">No se encontró el cliente.</p>
