@@ -10,18 +10,27 @@
 
       <!-- Links (desktop) -->
       <div class="hidden md:flex items-center gap-4">
-        <a
-          class="px-4 py-2 rounded-md bg-white/10 text-white/90 font-medium
-                 hover:bg-[#f36f21] hover:text-white transition
-                 focus:outline-none focus:ring-2 focus:ring-[#f36f21]
-                 data-[active=true]:bg-[#f36f21] data-[active=true]:text-white"
-          data-active="true">Clientes</a>
+        <button
+          wire:click="$set('selectedOption', 'Clientes')"
+          class="px-4 py-2 rounded-md font-medium
+                transition-colors duration-300 ease-in-out
+                {{ $selectedOption === 'Clientes'
+                    ? 'bg-[#f36f21] text-white'
+                    : 'bg-white/10 text-white/90 hover:bg-[#f36f21] hover:text-white' }}"
+        >
+          Clientes
+        </button>
 
-        <a
-          class="px-4 py-2 rounded-md bg-white/10 text-white/90 font-medium
-                 hover:bg-[#f36f21] hover:text-white transition
-                 focus:outline-none focus:ring-2 focus:ring-[#f36f21]">
-          Pedidos</a>
+        <button
+          wire:click="$set('selectedOption', 'Pedidos')"
+          class="px-4 py-2 rounded-md font-medium
+                transition-colors duration-300 ease-in-out
+                {{ $selectedOption === 'Pedidos'
+                    ? 'bg-[#f36f21] text-white'
+                    : 'bg-white/10 text-white/90 hover:bg-[#f36f21] hover:text-white' }}"
+        >
+          Pedidos
+        </button>
 
         <button type="button"
           class="px-4 py-2 rounded-md bg-red-500/80 text-white font-medium
