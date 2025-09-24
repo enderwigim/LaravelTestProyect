@@ -10,9 +10,12 @@
 <body>
     <livewire:components.navbar>
 
+    {{-- 
     <livewire:customers.customer-grid />
     <livewire:customers.detail />
-    <livewire:customers.customer-edit />
+    <livewire:customers.customer-edit /> 
+    --}}
+    <livewire:home.home-page-controller />
     @livewireScripts
 
 
