@@ -6,7 +6,15 @@ use Livewire\Component;
 
 class Navbar extends Component
 {
-    public string $selectedOption = '';
+    public string $selectedOption = 'Clientes';
+
+    public function updatedSelectedOption($value)
+    {
+        if ($value == "Clientes")
+            $this->dispatch("showCustomers");
+        else if ($value == "Pedidos")
+            $this->dispatch("showOrders");
+    }
 
     public function setOption(string $option)
     {
