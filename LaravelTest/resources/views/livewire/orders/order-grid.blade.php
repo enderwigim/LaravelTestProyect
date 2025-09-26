@@ -41,27 +41,26 @@
             class="hover:bg-[#0077c8]/5 transition"
           >
             <!-- Click en celdas abre detalle -->
-            <td class="px-4 py-3 cursor-pointer" >
-                {{-- wire:click="seeDetail({{ $o['doh_id'] }})" --}}
+            <td class="px-4 py-3 cursor-pointer" wire:click="seeDetail({{ $o['doh_id'] }})">
               <span class="inline-flex items-center rounded-md bg-[#0077c8]/10 px-2 py-1 font-medium text-[#003f66]">
                 {{ $o['doh_id'] }}
               </span>
             </td>
-            <td class="px-4 py-3 cursor-pointer" >
-                {{-- wire:click="seeDetail({{ $o['doh_id'] }})" --}}
+            <td class="px-4 py-3 cursor-pointer" wire:click="seeDetail({{ $o['doh_id'] }})">
+
               {{ $o['doh_date'] }}
             </td>
-            <td class="px-4 py-3 cursor-pointer">
-                {{-- wire:click="seeDetail({{ $o['doh_id'] }})" --}}
+            <td class="px-4 py-3 cursor-pointer" wire:click="seeDetail({{ $o['doh_id'] }})">
+
               {{ $o->customer->cus_commercialname ?? 'N/A' }}
             </td>
-            <td class="px-4 py-3 cursor-pointer" >
-                {{-- wire:click="seeDetail({{ $o['doh_id'] }})" --}}
+            <td class="px-4 py-3 cursor-pointer" wire:click="seeDetail({{ $o['doh_id'] }})">
+
               {{ $o->customer->cus_taxid ?? 'N/A' }}
             </td>
-            <td class="px-4 py-3 cursor-pointer" >
-                {{-- wire:click="seeDetail({{ $o['doh_id'] }})" --}}
-              {{ $o['doh_totalamount'] }}
+            <td class="px-4 py-3 cursor-pointer" wire:click="seeDetail({{ $o['doh_id'] }})">
+
+              {{ $o['doh_totalamount']}}€
             </td>
             <td class="px-4 py-3">
               <div class="flex items-center justify-end gap-2">
@@ -69,8 +68,9 @@
                   class="px-3 py-1.5 rounded-md bg-white/10 text-[#003f66] border border-[#0077c8]/30
                          hover:bg-[#0077c8] hover:text-white transition
                          focus:outline-none focus:ring-2 focus:ring-[#0077c8]/40"
+                  wire:click="seeDetail({{ $o['doh_id'] }})"
                   >
-                  {{-- wire:click="seeDetail({{ $c['cus_id'] }})" --}}
+
                   Detalle
                 </button>
 

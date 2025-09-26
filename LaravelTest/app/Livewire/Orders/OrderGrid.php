@@ -5,7 +5,7 @@ namespace App\Livewire\Orders;
 use Livewire\Component;
 
 use App\Models\Docheader_doh;
-
+use App\Livewire\Orders\Detail;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\URL;
 
@@ -22,6 +22,12 @@ class OrderGrid extends Component
     public function updatingSearchText(): void
     {
         $this->reset(); 
+    }
+
+    public function seeDetail(int $id): void
+    {
+        // Abre modal de detalle
+        $this->dispatch('orders.detail:open', id: $id)->to(Detail::class);
     }
 
     public function render()

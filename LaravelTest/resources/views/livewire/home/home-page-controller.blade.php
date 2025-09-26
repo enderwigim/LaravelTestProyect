@@ -5,6 +5,7 @@
         <livewire:customers.customer-edit />
     @elseif ($selectedOption === 'Pedidos')
         <livewire:orders.order-grid />
+        <livewire:orders.detail />
         {{-- <livewire:orders.sale-order-grid /> --}}
     @endif
 </div>
