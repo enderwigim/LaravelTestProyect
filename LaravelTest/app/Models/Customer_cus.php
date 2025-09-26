@@ -32,6 +32,4 @@ class Customer_cus extends Model
         'cus_taxid',
     ];
 
-    // Si usas varias conexiones y esta tabla va en otra (opcional)
-    // protected $connection = 'pgsql_reporting';
 }
