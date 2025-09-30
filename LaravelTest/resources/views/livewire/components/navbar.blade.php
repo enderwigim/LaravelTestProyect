@@ -21,7 +21,18 @@
           Clientes
         </button>
 
-        <button
+        {{-- PEDIDOS CON FLUX COMPONENT OJO NO ES TAN FACIL ADAPTAR EL BOTÓN A LO QUE YA TIENES. --}}
+        {{-- Lo que se puede hacer es utilizar el important, porque FLUX sobreescribe los controles. --}}
+        <flux:button
+          wire:click="$set('selectedOption', 'Pedidos')"
+          class="px-4 py-2 rounded-md font-medium transition-colors duration-300! ease-in-out border-none 
+              {{ $selectedOption === 'Pedidos' 
+                  ? 'bg-[#f36f21]! text-white!' 
+                  : 'bg-white/10! text-white/90! hover:bg-[#f36f21]! hover:text-white!' }}"
+          >
+              Pedidos
+          </flux:button>
+        {{-- <button
           wire:click="$set('selectedOption', 'Pedidos')"
           class="px-4 py-2 rounded-md font-medium
                 transition-colors duration-300 ease-in-out
@@ -30,13 +41,14 @@
                     : 'bg-white/10 text-white/90 hover:bg-[#f36f21] hover:text-white' }}"
         >
           Pedidos
-        </button>
+        </button> --}}
 
         <button type="button"
           class="px-4 py-2 rounded-md bg-red-500/80 text-white font-medium
                  hover:bg-red-600 transition focus:outline-none focus:ring-2 focus:ring-red-400">
           Salir
         </button>
+        
       </div>
 
       <!-- Mobile toggle -->
