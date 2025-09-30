@@ -42,6 +42,6 @@ class Docheader_doh extends Model
 
     public function doclines(): HasMany
     {
-        return $this->hasMany(Docline_dli::class);
+        return $this->hasMany(Docline_dli::class, 'doh_dli_fk', 'doh_id');
     }
 }

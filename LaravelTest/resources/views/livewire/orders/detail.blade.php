@@ -8,7 +8,8 @@
     x-transition.opacity
   >
     <!-- Modal -->
-    <div class="bg-white rounded-lg shadow-xl w-full max-w-lg mx-4 overflow-hidden">
+    <div class="bg-white rounded-lg shadow-xl w-full max-w-5xl mx-4 overflow-hidden">
+
       <!-- Header -->
       <div class="flex items-center justify-between px-6 py-4 border-b border-gray-200 bg-[#0077c8] text-white">
         <h2 class="text-lg font-semibold">Detalle del Cliente</h2>
@@ -22,20 +23,16 @@
         @if ($order)
           <div>
             <p class="text-sm font-semibold text-gray-600">Cliente</p>
-            <p class="text-gray-900">{{ $o->customer->cus_commercialname ?? 'N/A' }}</p>
-          </div>
-          {{-- <div>
-            <p class="text-sm font-semibold text-gray-600">Nombre Comercial</p>
-            <p class="text-gray-900">{{ $order['cus_commercialname'] }}</p>
+            <p class="text-gray-900">{{ $order->customer->cus_commercialname ?? 'N/A' }}</p>
           </div>
           <div>
-            <p class="text-sm font-semibold text-gray-600">Nombre Empresa</p>
-            <p class="text-gray-900">{{ $order['cus_corporatename'] }}</p>
+            <p class="text-sm font-semibold text-gray-600">Número de pedido</p>
+            <p class="text-gray-900">{{ $order->doh_id ?? 'N/A' }}</p>
           </div>
-          <div>
-            <p class="text-sm font-semibold text-gray-600">CIF</p>
-            <p class="text-gray-900">{{ $order['cus_taxid'] }}</p>
-          </div> --}}
+
+          <livewire:orders.grid-detail :order="$order">
+
+
         @else
           <p class="text-gray-500 text-sm">No se encontraron datos para este cliente.</p>
         @endif

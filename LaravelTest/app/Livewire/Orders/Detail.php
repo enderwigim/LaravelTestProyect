@@ -9,7 +9,7 @@ class Detail extends Component
 {
     public bool $open = false;
 
-    public ?array $order = null;
+    public $order = null;
 
     protected $listeners = [
         'orders.detail:open' => 'openModal',
@@ -18,12 +18,14 @@ class Detail extends Component
     public function openModal(int $id): void
     {
         // Cargar datos del cliente desde la base de datos
-        $data = Docheader_doh::all()
-            ->keyBy('doh_id')
-            ->with('customer')
-            ->toArray();
+        $this->order = Docheader_doh::select('doh_id', 'doh_date', 'doh_totalamount', 'cus_doh_fk')
+             ->with(['customer:cus_id,cus_commercialname',
+                     'doclines:dli_id,doh_dli_fk,dli_description,dli_quantity,dli_price']) 
+             ->where('doh_id', $id)
+             ->first();
 
-        $this->order = $data[$id] ?? null;
+
+        //dd($this->order);
         $this->open = true;
     }
 
