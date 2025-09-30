@@ -16,9 +16,17 @@ class Navbar extends Component
             $this->dispatch("showOrders");
     }
 
-    public function setOption(string $option)
+        public function setOption(string $option)
     {
         $this->selectedOption = $option;
+
+        if ($option === 'Clientes') {
+            return redirect()->route('clientes'); // navegación a la ruta
+        }
+
+        if ($option === 'Pedidos') {
+            return redirect()->route('pedidos'); // navegación a la ruta
+        }
     }
 
     public function render()
