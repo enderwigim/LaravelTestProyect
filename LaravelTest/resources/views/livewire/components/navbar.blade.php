@@ -11,27 +11,24 @@
       <!-- Links (desktop) -->
       <div class="hidden md:flex items-center gap-4">
         <button
-          wire:click="$set('selectedOption', 'Clientes')"
+          wire:click="setOption('Clientes')"
           class="px-4 py-2 rounded-md font-medium
                 transition-colors duration-300 ease-in-out
-                {{ $selectedOption === 'Clientes'
+                {{ $selectedOption ==='Clientes'
                     ? 'bg-[#f36f21] text-white'
-                    : 'bg-white/10 text-white/90 hover:bg-[#f36f21] hover:text-white' }}"
-        >
+                    : 'bg-white/10 text-white/90 hover:bg-[#f36f21] hover:text-white' }}">
           Clientes
         </button>
-
         {{-- PEDIDOS CON FLUX COMPONENT OJO NO ES TAN FACIL ADAPTAR EL BOTÓN A LO QUE YA TIENES. --}}
         {{-- Lo que se puede hacer es utilizar el important, porque FLUX sobreescribe los controles. --}}
         <flux:button
-          wire:click="$set('selectedOption', 'Pedidos')"
+          wire:click="setOption('Pedidos')"
           class="px-4 py-2 rounded-md font-medium transition-colors duration-300! ease-in-out border-none 
               {{ $selectedOption === 'Pedidos' 
                   ? 'bg-[#f36f21]! text-white!' 
-                  : 'bg-white/10! text-white/90! hover:bg-[#f36f21]! hover:text-white!' }}"
-          >
-              Pedidos
-          </flux:button>
+                  : 'bg-white/10! text-white/90! hover:bg-[#f36f21]! hover:text-white!' }}">
+          Pedidos
+        </flux:button>
         {{-- <button
           wire:click="$set('selectedOption', 'Pedidos')"
           class="px-4 py-2 rounded-md font-medium

@@ -6,8 +6,18 @@ use Livewire\Component;
 
 class Navbar extends Component
 {
-    public string $selectedOption = 'Clientes';
+    public string $selectedOption;
 
+    public function mount()
+    {
+        if (request()->routeIs('clientes')) {
+            $this->selectedOption = 'Clientes';
+        } elseif (request()->routeIs('pedidos')) {
+            $this->selectedOption = 'Pedidos';
+        } else {
+            $this->selectedOption = 'Clientes';
+        }
+    }
     public function updatedSelectedOption($value)
     {
         if ($value == "Clientes")
